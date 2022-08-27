@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import userProfile from "./../images/user profile.jpg";
 import jobData from "./../data.json";
-import JobListComponent from "../components/JobListComponent";
 import { findNotApplied, recentApplied } from "./../filterFunctions";
-
+import JobModal from "../components/JobModal";
 
 
 export default function Home() {
@@ -30,21 +29,23 @@ export default function Home() {
                 </div>
 
             </div>
+
             <div className="home-applied-container">
+
                 <h3>Recently Applied Jobs</h3>
-                <JobListComponent job={recentApplied1} />
-                <JobListComponent job={recentApplied2} />
+                <JobModal job={recentApplied1} />
+                <JobModal job={recentApplied2} />
                 <div style={{ "display": "flex", "justifyContent": "center", "alignItems": "center", "flexDirection": "row", "margin": "auto" }}>
-                    <Link to="/search" state={{ status_code: [1, 2] }}>See more applied jobs</Link>
+                    <Link to="/search/" state={{ status_code: [1, 2], jobLocation: "" }}>See more applied jobs</Link>
                 </div>
 
                 <div style={{ backgroundColor: "#61dafb", width: "100%", height: "0.1rem" }}></div>
 
                 <h3>Opportunities</h3>
-                <JobListComponent job={notApplied1} />
-                <JobListComponent job={notApplied2} />
+                <JobModal job={notApplied1} />
+                <JobModal job={notApplied2} />
                 <div style={{ "display": "flex", "justifyContent": "center", "alignItems": "center", "flexDirection": "row", "margin": "auto" }}>
-                    <Link to="/search" state={{ status_code: [0] }}>See more opportunities</Link>
+                    <Link to="/search/" state={{ status_code: [0], jobLocation: "" }}>See more opportunities</Link>
                 </div>
 
             </div>

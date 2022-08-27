@@ -40,4 +40,18 @@ function recentApplied(jobs) {
     return [job1, job2];
 }
 
-export { findNotApplied, recentApplied };
+function statusToText(status) {
+    if (status === 0) {
+        return "Not Applied";
+    } else if (status == 1) {
+        return "Pending Response";
+    } else if (status == 2) {
+        return "Application Recieved";
+    } else if (status == 3) {
+        return "Accepted";
+    } else {
+        return "Rejected";
+    }
+}
+
+export { findNotApplied, recentApplied, statusToText };
